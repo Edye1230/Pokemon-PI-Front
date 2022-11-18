@@ -4,6 +4,8 @@ import App from './App';
 import store from "./Redux/store"
 import { Provider } from "react-redux";
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
 axios.defaults.baseURL = process.env.DEV || "https://backend-edye.herokuapp.com";
 
