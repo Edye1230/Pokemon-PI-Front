@@ -1,0 +1,13 @@
+#errorhandler{
+    padding-top: 10px;
+    background-color: rgba(255, 255, 255, 0.474);
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 53px;
+}
+
+#p-error{
+    color: rgb(193, 0, 0);
+    font-family: cursive;
+    display: inline-block;
+}

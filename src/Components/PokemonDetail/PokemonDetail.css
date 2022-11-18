@@ -1,0 +1,17 @@
+.container-detail{
+    text-align: center;
+    background-color: aliceblue;
+    padding-bottom: 41px;
+    font-family: cursive;
+}
+
+#pokemon-detail{
+    background-color: rgba(183, 215, 243, 0.59);
+    text-align: center;
+    font-size: 18px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+}
