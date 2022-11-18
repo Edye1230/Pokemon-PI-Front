@@ -7,7 +7,7 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
-axios.defaults.baseURL = process.env.DEV || "https://backend-edye.herokuapp.com";
+axios.defaults.baseURL = process.env.BASE_URL_LOCAL || process.env.REACT_APP_VERCEL_URL;
 
 ReactDOM.render(
   <Provider store={store}>
@@ -28,4 +28,4 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-console.log(process.env.DEV);
+console.log(process.env);
