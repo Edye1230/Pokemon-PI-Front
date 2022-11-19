@@ -16,11 +16,9 @@ export const ACTUAL_PAGE = "ACTUAL_PAGE";
 
 export const actionGetTypes = () => {
     return function (dispatch) {
-        return fetch("http://localhost:3001/types")
-            .then((res) => res.json())
-                .then((json) => {
-                    dispatch({type: GET_TYPES, payload: json})
-            })
+        return axios.get("/types").then((res) => {
+            dispatch({ type: GET_TYPES, payload: res.data })
+        })
 }};
 /*
 export const actionGetTypes = () => {
@@ -41,7 +39,7 @@ export const actionGetHomePokemons = () => {
 
 export const actionGetSearchPokemons = (name) => {
     return function (dispatch) {
-        return axios.get(`http://localhost:3001/pokemonsByName/${name}`)
+        return axios.get(`/pokemon?name=${name}`)
             .then((res) => {
                 dispatch({type: GET_SEARCH_POKEMONS, payload: res.data})
             })
@@ -68,7 +66,7 @@ export const actionClearFilters = () => ({
 
 export const actionGetPokemonByID = (pokemonId) => {
     return function (dispatch) {
-        return axios.get(`http://localhost:3001/pokemonsByID/${pokemonId}`)
+        return axios.get(`/pokemon/${pokemonId}`)
             .then((res) => {
                 dispatch({type: GET_POKEMON_BY_ID, payload: res.data})
             })
@@ -79,7 +77,7 @@ export const actionRemovePokemonByID = () => ({
 });
 
 export const actionPostPokemon = (data) => {
-    axios.post(`http://localhost:3001/postPokemon`, data)
+    axios.post(`/pokemon`, data)
         return (dispatch) => {
             dispatch({type: POST_POKEMON})
         }
