@@ -4,8 +4,9 @@ import App from './App';
 import store from "./Redux/store"
 import { Provider } from "react-redux";
 import axios from "axios";
+//import { Link } from "react-router-dom";
 
-axios.defaults.baseURL = process.env.REACT_APP_VERCEL_URL || "http://localhost:3001";
+axios.defaults.baseURL = process.env.REACT_APP_VERCEL_URL || "https://backend-edye.herokuapp.com";
 
 ReactDOM.render(
   <Provider store={store}>

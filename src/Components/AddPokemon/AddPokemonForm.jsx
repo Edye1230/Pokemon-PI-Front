@@ -26,7 +26,8 @@ const AddDogForm = () => {
     }, [])
 
     const postPokemon = () => {
-        dispatch(actionPostPokemon(newPokemon))
+        const P1 = Promise.resolve(dispatch(actionPostPokemon(newPokemon)));
+        P1.then(window.location.href="/added");
     };
 
     let typesFiltered = newPokemon.types.filter((item, i) => { return newPokemon.types.indexOf(item) === i})
@@ -74,7 +75,6 @@ const AddDogForm = () => {
     const submitHandler = () => {
         if (Object.keys(errors).length === 0) {
             postPokemon();
-            window.location.href="/added";
         } else {
             alert("Complete los campos correctamente por favor")
         }

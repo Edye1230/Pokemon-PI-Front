@@ -17,18 +17,10 @@ export const ACTUAL_PAGE = "ACTUAL_PAGE";
 export const actionGetTypes = () => {
     return function (dispatch) {
         return axios.get("/types").then((res) => {
-            dispatch({ type: GET_TYPES, payload: res.data })
-        })
-}};
-/*
-export const actionGetTypes = () => {
-    return function (dispatch) {
-        return axios.get("http://localhost:3001/types")
-            .then((res) => {
                 dispatch({type: GET_TYPES, payload: res.data})
             })
 }};
-*/
+
 export const actionGetHomePokemons = () => {
     return function (dispatch) {
         return axios.get("/pokemons")
