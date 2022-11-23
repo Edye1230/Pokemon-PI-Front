@@ -69,10 +69,12 @@ export const actionRemovePokemonByID = () => ({
 });
 
 export const actionPostPokemon = (data) => {
-    axios.post(`/pokemon`, data)
-        return (dispatch) => {
+    return function (dispatch) {
+        return axios.post(`/pokemon`, data)
+        .then(() => {
             dispatch({type: POST_POKEMON})
-        }
+        })
+    }
 };
 
 export const actionPrevPage = () => ({
