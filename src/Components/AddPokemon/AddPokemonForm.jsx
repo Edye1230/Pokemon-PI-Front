@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { actionPostPokemon, actionGetTypes } from "../../Redux/actions"
+import { actionPostPokemon, actionGetTypes } from "../../Redux/actions";
+import { useNavigate } from "react-router-dom";
 import "./AddPokemon.css"
 
 const AddDogForm = () => {
-    
+    const navigate  = useNavigate();
+
     const [newPokemon, setNewPokemon] = useState({
         name: "",
         stats_hp: 0,
@@ -26,8 +28,7 @@ const AddDogForm = () => {
     }, [])
 
     const postPokemon = () => {
-        const P1 = Promise.resolve(dispatch(actionPostPokemon(newPokemon)));
-        P1.then(window.location.href="/added");
+        dispatch(actionPostPokemon(newPokemon));
     };
 
     let typesFiltered = newPokemon.types.filter((item, i) => { return newPokemon.types.indexOf(item) === i})
@@ -73,8 +74,10 @@ const AddDogForm = () => {
     console.log(errors);
 
     const submitHandler = () => {
+        
         if (Object.keys(errors).length === 0) {
-            postPokemon();
+            postPokemon()
+            setTimeout(()=> navigate('/added'), 1000)
         } else {
             alert("Complete los campos correctamente por favor")
         }
