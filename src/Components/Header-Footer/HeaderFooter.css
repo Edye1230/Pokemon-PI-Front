@@ -1,6 +1,8 @@
 .poke_header{
-    background-color: rgb(148, 77, 255);
+    background: repeating-linear-gradient(135deg,#c20e9e 4.9%,#111473b4 5%);
     padding: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
 }
 
 #poke-navbar {
@@ -18,10 +20,11 @@
 }
 
 .poke_footer {
-    background-color: rgb(148, 77, 255);
+    background: repeating-linear-gradient(135deg,#c20e9e 4.9%,#111473b4 5%);
     padding: 15px;
     text-align: center;
     color: rgb(255, 255, 255);
     font-size: 15px;
+    
   }
   

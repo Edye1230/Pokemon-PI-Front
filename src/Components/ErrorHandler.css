@@ -1,5 +1,5 @@
 .ErrorHandler{
-    background-color: rgba(255, 255, 255, 0.474);
+    background-color: aliceblue;
     text-align: center;
     font-size: 40px;
     display: flex;
@@ -18,6 +18,7 @@
 
 #p-error{
     color: rgb(193, 0, 0);
+    margin: 0px;
 }
 
 #photo_error{

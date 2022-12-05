@@ -17,7 +17,7 @@ export const Header = () => {
 export const Footer = () => {
     return(
         <div className="poke_footer">
-            <p>© 2022 Soy Henry | All rights reserved.</p>
+            <p>© 2022 Edye QS | All rights reserved.</p>
          </div>
     );
 };

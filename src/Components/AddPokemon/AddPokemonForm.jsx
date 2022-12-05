@@ -97,7 +97,7 @@ const AddDogForm = () => {
 
             <h2 id="addpokemon-h1">Añadir Pokemon</h2>
 
-            <div className="formulario_create"></div>
+            <div className="formulario_create">
 
             <form onSubmit = { e => e.preventDefault() }
                   onChange = { formOnChangeHandler } >
@@ -128,19 +128,27 @@ const AddDogForm = () => {
                 <span>{errors.img_url}</span>
 
                 <label>Tipos:</label>
+
+                <div id="button_create">
+
                     <select id="sgcss" name="selectTypes">
                         <option disabled={false} value={"Seleccionar"}>Seleccionar</option>
                         {stateTypes ? stateTypes.map(i=><option key={i.id} value={i.name}>{i.name}</option>) : ""}
                     </select> 
-                <div className="form_select_button">
+                    <br /><br />
+                </div>
+
+                <div className="divv_selected_types">
                     {typesFiltered.map(i=><span key={i}id="selected-types">{i}</span>)}
                     <span>{/*errors.types*/}</span> <br/>
                     <br />
+                    <span>{errors.empty}</span><br />
+                </div>
+                <div id="button_create">
                     <button id="landing-btn" type="submit" disabled={errors.name ? false : false} onClick={submitHandler}> Enviar </button>
-                    <span>{errors.empty}</span>
                 </div>
             </form>
-
+            </div>
             </div>
 
             <Footer/>

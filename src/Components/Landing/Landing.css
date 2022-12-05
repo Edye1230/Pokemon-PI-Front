@@ -2,8 +2,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: aliceblue;
-
+    background-color: rgba(156, 252, 255, 0.468);
 }
 
 /* The article fills all the space between header & footer */
@@ -12,22 +11,24 @@
     flex-wrap: wrap;
     flex-direction: row;
     flex: 1;
-    align-items: center;
-    justify-content: center;
+    align-self: center;
 }
 
 .landing-left {
+    background-color: rgba(0, 30, 255, 0.482);
     display: flex;
     flex-direction: column;
     flex: 1;
     align-items: center;
-    margin: 18px;
     min-width: 225px;
-    justify-content: center;
-    background-color: rgba(8, 0, 255, 0.605);
+    max-width: 500px;
     border-radius: 90px;
     border-style: solid;
     border-color: black;
+    width: 100%;
+    align-self: center;
+    margin: 25px;
+    padding: 5px;
 }
 
 .landing-left h5{
@@ -35,6 +36,7 @@
     inline-size: 60%; 
     text-align: justify;
     font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .land-botones {
@@ -94,8 +96,9 @@
 }
 
 #title_h1{
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     font-size: xx-large;
-    text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 3px;
 }
