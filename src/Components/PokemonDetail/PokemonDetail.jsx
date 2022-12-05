@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 //import styled from 'styled-components';
 import "./PokemonDetail.css"
 
+import { Header, Footer } from "../Header-Footer/HeaderFooter";
+
 import loading from "./pikachu.gif";
 
 const PokemonDetail = () => {
@@ -25,10 +27,10 @@ const PokemonDetail = () => {
 
     console.log(pokeElegido ? pokeElegido.id : false);
 
-    return ( pokeElegido.id ? 
-        <div className="container-detail"><br />
-
-            <h1>Detalle del Pokemon</h1>
+    return ( !pokeElegido.id ? 
+        <div className="PokemonDetail">
+            <Header/>
+            <div className="container-detail"><br />
 
             <div id="pokemon-detail">
             <h2>Nombre: {pokeElegido.name}</h2>
@@ -42,14 +44,19 @@ const PokemonDetail = () => {
                 <p>Altura: {pokeElegido.height}</p>
                 <p>Tipos:</p> {pokeElegido.types ? pokeElegido.types.map(i=> <p key={i}>{i}</p>) : false}
             </div>
-            <br />
-        <Link id="landing-btn" to={`../home/`} >Volver</Link>
+            <Link to="/home"><button id="landing-btn">Volver</button></Link>
         
+        </div>
+        <Footer/>
         </div>
 
     : 
-        <div className="container-loading">
-            <img id="loading" src={loading} alt=""/>
+        <div className="PokemonDetail">
+            <Header/>
+            <div className="container-loading">
+                <img id="photo_loading" src={loading} alt=""/>
+            </div>
+            <Footer/>
         </div>
 
     );

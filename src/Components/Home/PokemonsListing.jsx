@@ -50,7 +50,7 @@ const PokemonsListing = () => {
     };
 
     for (let i = 0; i < cantidad; i++) {
-        paginas.push(<button id="landing-btn" key={i+1} onClick={() => {dispatch(actionActualPage(12*i))}}> {i + 1} </button>)
+        paginas.push(<button id="boton_pagination" key={i+1} onClick={() => {dispatch(actionActualPage(12*i))}}> {i + 1} </button>)
       };
     
     let carga;
@@ -65,21 +65,21 @@ const PokemonsListing = () => {
             <div id="paginas">{paginas.length > 1 ? paginas : false}</div>
         </div>
 
-        <div className="container">
+        <div className="listing-container">
             {renderHome.slice(statePage, statePage + 12)}
         </div>
 
         <div id="buttons-container">
             <div id="sig-ant-buttons">
-                {statePage !== 0 ? <button id="landing-btn" onClick={prevPage}>Anterior</button> : <button id="landing-btn" disabled={true}>Anterior</button> }
-                {renderHome.length < 12 ? <button id="landing-btn" disabled={true} onClick={nextPage}>Siguiente</button>: <button id="landing-btn" disabled={btnsig} onClick={nextPage}>Siguiente</button>}
+                {statePage !== 0 ? <button id="boton_pagination" onClick={prevPage}>Anterior</button> : <button id="boton_pagination" disabled={true}>Anterior</button> }
+                {renderHome.length < 12 ? <button id="boton_pagination" disabled={true} onClick={nextPage}>Siguiente</button>: <button id="boton_pagination" disabled={btnsig} onClick={nextPage}>Siguiente</button>}
             </div>
         </div>
-
+        <br />
       </> : 
       
       <div className="container-loading">
-        { carga === "Cargando..." ? <img id="loading" src={loading} alt=""/> : carga}
+        { carga === "Cargando..." ? <img id="photo_loading_home" src={loading} alt=""/> : carga}
       </div>
 
       )

@@ -69,11 +69,10 @@ export const actionRemovePokemonByID = () => ({
 });
 
 export const actionPostPokemon = (data) => {
-    return function (dispatch) {
-        return axios.post(`/pokemon`, data)
-        .then(() => {
-            dispatch({type: POST_POKEMON})
-        })
+    return async function (dispatch) {
+        const res = await axios.post(`/pokemon`, data);
+        dispatch({ type: POST_POKEMON, payload: res.data });
+        console.log(res.data);
     }
 };
 
@@ -95,11 +94,15 @@ const initialState = {
     filtered: [], //inicial
     unfiltered: [], //inicial
     clear_filters: [], //inicial
+    new_pokemon: []
 };
 
 export const pokemonsReducer = (estado = initialState, accion) => {
     
     switch (accion.type) {
+        case POST_POKEMON:
+            console.log("POST_POKEMON");
+            return {...estado, new_pokemon: accion.payload}
         case GET_TYPES:
             return {...estado, types: accion.payload}
         case GET_HOME_POKEMONS:

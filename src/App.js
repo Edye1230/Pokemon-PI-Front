@@ -1,4 +1,3 @@
-import React, { Fragment } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Landing from "./Components/Landing/Landing";
 import Home from "./Components/Home/Home";
@@ -8,10 +7,11 @@ import Added from "./Components/AddPokemon/Added";
 import ErrorHandler from "./Components/ErrorHandler";
 import { Header, Footer } from "../src/Components/Header-Footer/HeaderFooter"
 
+import "./App.css"
+
 function App() {
   return (
     <BrowserRouter>
-      <Header />
 
         <Routes>
           <Route path="/" element={<Landing/>} />
@@ -21,8 +21,7 @@ function App() {
           <Route path="/added" element={<Added/>} />
           <Route path="*" element={<ErrorHandler/>} />
         </Routes>
-        
-      <Footer/>
+
     </BrowserRouter>
   );
 }

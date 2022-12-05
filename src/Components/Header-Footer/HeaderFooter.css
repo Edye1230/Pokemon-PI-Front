@@ -1,0 +1,27 @@
+.poke_header{
+    background-color: rgb(148, 77, 255);
+    padding: 15px;
+}
+
+#poke-navbar {
+    display: flex;
+    padding: 12px;
+}
+
+#poke-item-navbar{
+    font-size: 18px;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    list-style: none;
+    text-decoration: none;
+}
+
+.poke_footer {
+    background-color: rgb(148, 77, 255);
+    padding: 15px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+  }
+  

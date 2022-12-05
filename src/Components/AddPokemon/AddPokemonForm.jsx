@@ -4,9 +4,12 @@ import { actionPostPokemon, actionGetTypes } from "../../Redux/actions";
 import { useNavigate } from "react-router-dom";
 import "./AddPokemon.css"
 
+import { Header, Footer } from "../Header-Footer/HeaderFooter";
+
 const AddDogForm = () => {
     const navigate  = useNavigate();
-
+    const nuevoPoke = useSelector((estado) => estado.new_pokemon);
+    console.log(typeof nuevoPoke);
     const [newPokemon, setNewPokemon] = useState({
         name: "",
         stats_hp: 0,
@@ -28,7 +31,7 @@ const AddDogForm = () => {
     }, [])
 
     const postPokemon = () => {
-        dispatch(actionPostPokemon(newPokemon));
+        dispatch(actionPostPokemon(newPokemon))
     };
 
     let typesFiltered = newPokemon.types.filter((item, i) => { return newPokemon.types.indexOf(item) === i})
@@ -86,51 +89,62 @@ const AddDogForm = () => {
     console.log(newPokemon);
 
     return (
-        <div id="addpokemon">
+        <div className="AddPokemon">
 
-            <h2 id="addpokemon-h1">Añadir Pokemon</h2> <br />
+        <Header/>
+
+            <div className="AddPokemonForm">
+
+            <h2 id="addpokemon-h1">Añadir Pokemon</h2>
+
+            <div className="formulario_create"></div>
 
             <form onSubmit = { e => e.preventDefault() }
                   onChange = { formOnChangeHandler } >
             
                 <label> Nombre: </label> 
                 <input id="iptform" name="inputName" type="text" placeholder="" required={true}/> 
-                <span>{errors.name}</span> <br/> 
+                <span>{errors.name}</span>
                 <label>Vida: </label>
                 <input id="iptform" name="inputHP" type="number" placeholder="" required={true}/> 
-                <span>{errors.stats_hp}</span> <br/>
+                <span>{errors.stats_hp}</span>
                 <label>Ataque:</label>
                 <input id="iptform" name="inputAttack" type="number" placeholder="" required={true}/> 
-                <span>{errors.stats_attack}</span> <br/>
+                <span>{errors.stats_attack}</span>
                 <label>Defensa:</label>
                 <input id="iptform" name="inputDefense" type="number" placeholder="" required={true}/> 
-                <span>{errors.stats_defense}</span> <br/>
+                <span>{errors.stats_defense}</span>
                 <label>Velocidad:</label>
                 <input id="iptform" name="inputSpeed" type="number" placeholder="" required={true}/> 
-                <span>{errors.stats_speed}</span> <br/>
+                <span>{errors.stats_speed}</span>
                 <label>Peso:</label>
                 <input id="iptform" name="inputWeight" type="number" placeholder="" required={true}/> 
-                <span>{errors.weight}</span> <br/>
+                <span>{errors.weight}</span>
                 <label>Altura:</label>
                 <input id="iptform" name="inputHeight" type="number" placeholder="" required={true}/> 
-                <span>{errors.height}</span> <br/>
+                <span>{errors.height}</span>
                 <label>Imagen:</label>
                 <input id="iptform"  name="inputImageUrl" type="text" placeholder="http://"required={true}/> 
-                <span>{errors.img_url}</span> <br/>
+                <span>{errors.img_url}</span>
 
                 <label>Tipos:</label>
                     <select id="sgcss" name="selectTypes">
                         <option disabled={false} value={"Seleccionar"}>Seleccionar</option>
                         {stateTypes ? stateTypes.map(i=><option key={i.id} value={i.name}>{i.name}</option>) : ""}
                     </select> 
-                
-                {typesFiltered.map(i=><span key={i}id="selected-types">{i}</span>)}
-                <span>{/*errors.types*/}</span> <br/>
-                <br />
-                <button id="landing-btn" type="submit" disabled={errors.name ? false : false} onClick={submitHandler}> Enviar </button>
-                <span>{errors.empty}</span>
-            
+                <div className="form_select_button">
+                    {typesFiltered.map(i=><span key={i}id="selected-types">{i}</span>)}
+                    <span>{/*errors.types*/}</span> <br/>
+                    <br />
+                    <button id="landing-btn" type="submit" disabled={errors.name ? false : false} onClick={submitHandler}> Enviar </button>
+                    <span>{errors.empty}</span>
+                </div>
             </form>
+
+            </div>
+
+            <Footer/>
+
       </div>
 
     );

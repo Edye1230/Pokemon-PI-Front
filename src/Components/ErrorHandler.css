@@ -1,13 +1,26 @@
-#errorhandler{
-    padding-top: 10px;
+.ErrorHandler{
     background-color: rgba(255, 255, 255, 0.474);
     text-align: center;
     font-size: 40px;
-    padding-bottom: 53px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.SubErrorHandler{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 #p-error{
     color: rgb(193, 0, 0);
-    font-family: cursive;
-    display: inline-block;
+}
+
+#photo_error{
+    max-width: 85%;
+    align-self: center;
 }
