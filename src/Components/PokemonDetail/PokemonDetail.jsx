@@ -27,7 +27,7 @@ const PokemonDetail = () => {
 
     console.log(pokeElegido ? pokeElegido.id : false);
 
-    return ( !pokeElegido.id ? 
+    return ( pokeElegido.id ? 
         <div className="PokemonDetail">
             <Header/>
             <div className="container-detail"><br />
